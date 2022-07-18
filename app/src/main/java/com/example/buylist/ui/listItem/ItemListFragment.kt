@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.buylist.R
 import com.example.buylist.databinding.FragmentListItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ListItemFragment : Fragment() {
+class ItemListFragment : Fragment() {
 
     private var _binding: FragmentListItemBinding? = null
-    private val viewModel: ListItemViewModel by viewModels()
+    private val viewModel: ItemListViewModel by viewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(

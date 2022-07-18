@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/border_view_blue.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/border_view_grey.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/checked.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/custom_checkbox.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/ic_vert.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/layout_border.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/unchecked.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/drawable/underlines.xml" value="0.157" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/fragment_buy_list.xml" value="0.264" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/fragment_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/item_list_row.xml" value="0.4" />
+        <entry key="..\:/Users/herda/AndroidStudioProjects/BuyList/app/src/main/res/layout/item_row.xml" value="0.25" />
       </map>
     </option>
   </component>

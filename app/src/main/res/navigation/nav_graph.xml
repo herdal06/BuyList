@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itemListFragment">
+
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.example.buylist.ui.listItem.ItemListFragment"
+        android:label="fragment_list_item"
+        tools:layout="@layout/fragment_list_item" />
+    <fragment
+        android:id="@+id/buyListFragment"
+        android:name="com.example.buylist.ui.buyList.BuyListFragment"
+        android:label="fragment_buy_list"
+        tools:layout="@layout/fragment_buy_list" />
+</navigation>
