@@ -11,7 +11,7 @@ interface ListItemDao {
     fun insertAll(vararg items: ListItem)
 
     @Insert
-    fun insert(item: ListItem)
+    suspend fun insert(item: ListItem)
 
     @Delete
     fun delete(item: ListItem)

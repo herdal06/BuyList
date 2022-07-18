@@ -23,11 +23,8 @@ class ItemListViewModel @Inject constructor(private var repository: ListItemRepo
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState
 
-    init {
-        getAllListItems()
-    }
 
-    private fun getAllListItems() {
+    fun getAllListItems() {
         viewModelScope.launch(Dispatchers.IO) {
             _uiState.update {
                 it.copy(items = repository())

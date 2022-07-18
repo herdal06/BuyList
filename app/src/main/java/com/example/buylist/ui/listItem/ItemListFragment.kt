@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.buylist.R
 import com.example.buylist.databinding.FragmentListItemBinding
 import com.example.buylist.domain.uimodel.ListItemUIModel
 import com.example.buylist.ui.listItem.adapter.ListItemAdapter
@@ -36,6 +38,11 @@ class ItemListFragment : Fragment() {
         observe()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllListItems()
+    }
+
     private fun observe() {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
@@ -49,12 +56,20 @@ class ItemListFragment : Fragment() {
     }
 
     private fun initUI() {
+        binding.recyclerViewListItems.adapter = listItemAdapter
         binding.apply {
-            recyclerViewListItems.adapter = listItemAdapter
+            fabAddItem.setOnClickListener {
+                findNavController().navigate(R.id.action_itemListFragment_to_addItemFragment)
+            }
         }
     }
 
     private fun onClickItem(item: ListItemUIModel) {
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

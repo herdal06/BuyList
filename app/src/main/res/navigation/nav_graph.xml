@@ -9,10 +9,22 @@
         android:id="@+id/itemListFragment"
         android:name="com.example.buylist.ui.listItem.ItemListFragment"
         android:label="fragment_list_item"
-        tools:layout="@layout/fragment_list_item" />
+        tools:layout="@layout/fragment_list_item" >
+        <action
+            android:id="@+id/action_itemListFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/buyListFragment"
         android:name="com.example.buylist.ui.buyList.BuyListFragment"
         android:label="fragment_buy_list"
         tools:layout="@layout/fragment_buy_list" />
+    <dialog
+        android:id="@+id/addItemFragment"
+        android:name="com.example.buylist.ui.addItem.AddItemFragment"
+        android:label="AddItemFragment" >
+        <action
+            android:id="@+id/action_addItemFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+    </dialog>
 </navigation>

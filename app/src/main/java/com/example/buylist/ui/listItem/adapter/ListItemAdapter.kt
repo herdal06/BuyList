@@ -19,7 +19,7 @@ class ListItemAdapter(private val onClickItem: ((item: ListItemUIModel) -> Unit)
     ): RecyclerView.ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false)
-        return ListItemViewHolder(view, onClickItem)
+        return ListItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
