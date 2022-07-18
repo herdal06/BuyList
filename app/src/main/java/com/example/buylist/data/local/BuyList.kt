@@ -10,8 +10,8 @@ data class BuyList(
     val id: Int = 0,
     @ColumnInfo(name = "name")
     val name: String?,
-    @ColumnInfo(name = "items")
-    val items: List<ListItem>,
+    //@ColumnInfo(name = "items")
+    //val items: List<ListItem>,
     @ColumnInfo(name = "completed")
     val completed: Boolean?,
 )
