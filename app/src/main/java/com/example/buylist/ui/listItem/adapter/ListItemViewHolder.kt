@@ -4,6 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buylist.databinding.ItemRowBinding
 import com.example.buylist.domain.uimodel.ListItemUIModel
+import com.example.buylist.utils.extensions.orFalse
 
 class ListItemViewHolder(
     view: View
@@ -13,6 +14,7 @@ class ListItemViewHolder(
 
     fun bind(uiModel: ListItemUIModel) = with(binding) {
         tvItem.text = uiModel.name
-
+        textViewItemQuantity.text = uiModel.quantity.toString()
+        checkBox.isChecked = uiModel.completed.orFalse()
     }
 }

@@ -16,14 +16,16 @@ import javax.inject.Inject
 class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase) :
     ViewModel() {
 
-    fun addItem(name: String) {
+    fun addItem(name: String, quantity: Int, completed: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             appDatabase.listItemDao().insert(
                 ListItem(
-                    name = name
+                    name = name,
+                    quantity = quantity,
+                    completed = completed
                 )
             )
         }
-        Log.v("AddItemViewModel","name : $name")
+        Log.v("AddItemViewModel", "name : $name")
     }
 }

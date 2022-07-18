@@ -39,7 +39,8 @@ class AddItemFragment : BottomSheetDialogFragment() {
     private fun initUI() {
         binding.btnSave.setOnClickListener {
             val name = binding.tilInputNote.text.toString()
-            viewModel.addItem(name = name)
+            val quantity = binding.tilInputWeight.text.toString().toInt()
+            viewModel.addItem(name = name, quantity = quantity, completed = true)
             //Log.v("AddItemFragment","name : $name")
         }
     }
