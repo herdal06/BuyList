@@ -12,7 +12,7 @@ class ListItemViewHolder(
     private val binding = ItemRowBinding.bind(view)
 
     fun bind(uiModel: ListItemUIModel) = with(binding) {
-        tvWeight.text = uiModel.name
+        tvItem.text = uiModel.name
 
     }
 }

@@ -21,7 +21,7 @@ class ItemListFragment : Fragment() {
     private val viewModel: ItemListViewModel by viewModels()
     private val binding get() = _binding!!
     private val listItemAdapter: ListItemAdapter by lazy {
-        ListItemAdapter(::onClickItem)
+        ListItemAdapter()
     }
 
     override fun onCreateView(
@@ -36,10 +36,6 @@ class ItemListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUI()
         observe()
-    }
-
-    override fun onResume() {
-        super.onResume()
         viewModel.getAllListItems()
     }
 
@@ -62,10 +58,6 @@ class ItemListFragment : Fragment() {
                 findNavController().navigate(R.id.action_itemListFragment_to_addItemFragment)
             }
         }
-    }
-
-    private fun onClickItem(item: ListItemUIModel) {
-
     }
 
     override fun onDestroyView() {

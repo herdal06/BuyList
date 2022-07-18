@@ -3,23 +3,34 @@ package com.example.buylist.ui.listItem.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.buylist.R
 import com.example.buylist.base.BaseListAdapter
+import com.example.buylist.databinding.ItemRowBinding
 import com.example.buylist.domain.uimodel.ListItemUIModel
 
-class ListItemAdapter(private val onClickItem: ((item: ListItemUIModel) -> Unit)?) :
+class ListItemAdapter :
     BaseListAdapter<ListItemUIModel>(
         itemsSame = { old, new -> old.uid == new.uid },
         contentsSame = { old, new -> old == new }
     ) {
+
+    class ListItemViewHolder(val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(uiModel: ListItemUIModel) = binding.apply {
+            tvItem.text = uiModel.name
+        }
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false)
-        return ListItemViewHolder(view)
+        return ListItemViewHolder(
+            ItemRowBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -12,7 +12,7 @@ import dagger.hilt.android.components.ViewModelComponent
 object RepositoryModule {
 
     @Provides
-    fun bindListItemRepository(
+    fun provideListItemRepository(
         appDatabase: AppDatabase
     ): ListItemRepository {
         return ListItemRepository(appDatabase)

@@ -20,7 +20,7 @@ class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase)
         viewModelScope.launch(Dispatchers.IO) {
             appDatabase.listItemDao().insert(
                 ListItem(
-                    name = name,
+                    name = name
                 )
             )
         }
