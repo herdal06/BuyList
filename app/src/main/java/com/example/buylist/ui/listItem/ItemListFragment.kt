@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.buylist.databinding.FragmentListItemBinding
 import com.example.buylist.domain.uimodel.ListItemUIModel
 import com.example.buylist.ui.listItem.adapter.ListItemAdapter
@@ -29,7 +30,6 @@ class ItemListFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
@@ -37,14 +37,20 @@ class ItemListFragment : Fragment() {
     }
 
     private fun observe() {
+        lifecycleScope.launchWhenCreated {
+            viewModel.uiState.collect {
+                setUIState(it)
+            }
+        }
+    }
 
+    private fun setUIState(uiState: ItemListViewModel.UiState) {
+        listItemAdapter.submitList(uiState.items)
     }
 
     private fun initUI() {
         binding.apply {
-            recyclerViewListItems.adapter = listItemAdapter.apply {
-                //submitList(listOf(ListItemUIModel()))
-            }
+            recyclerViewListItems.adapter = listItemAdapter
         }
     }
 
