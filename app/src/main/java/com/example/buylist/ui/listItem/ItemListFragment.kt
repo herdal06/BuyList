@@ -9,8 +9,10 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.buylist.R
 import com.example.buylist.databinding.FragmentListItemBinding
+import com.example.buylist.ui.listItem.adapter.ItemDecorator
 import com.example.buylist.ui.listItem.adapter.ListItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,8 +58,16 @@ class ItemListFragment : Fragment() {
     }
 
     private fun initUI() {
-        binding.recyclerViewListItems.adapter = listItemAdapter
+
         binding.apply {
+            recyclerViewListItems.adapter = listItemAdapter
+            recyclerViewListItems.addItemDecoration(ItemDecorator(requireContext())) // requireContext() -> context won't null
+            recyclerViewListItems.addItemDecoration(
+                DividerItemDecoration(
+                    recyclerViewListItems.context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
             fabAddItem.setOnClickListener {
                 findNavController().navigate(R.id.action_itemListFragment_to_addItemFragment)
             }

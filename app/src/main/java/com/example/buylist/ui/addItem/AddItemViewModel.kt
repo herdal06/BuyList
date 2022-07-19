@@ -33,7 +33,7 @@ class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase)
     fun addItem(name: String, quantity: Int, completed: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             when {
-                name.isBlank() -> {
+                name.isBlank() -> { // check if name is blank
                     eventChannel.send(Event.ShowToast(R.string.alert_name_blank))
                 }
                 else -> {
