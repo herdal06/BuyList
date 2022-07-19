@@ -1,16 +1,16 @@
 package com.example.buylist.ui.listItem
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.buylist.R
 import com.example.buylist.databinding.FragmentListItemBinding
-import com.example.buylist.domain.uimodel.ListItemUIModel
 import com.example.buylist.ui.listItem.adapter.ListItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,6 +44,10 @@ class ItemListFragment : Fragment() {
             viewModel.uiState.collect {
                 setUIState(it)
             }
+        }
+        // update fragment with resultListener
+        setFragmentResultListener("requestKey") { _, _ ->
+            viewModel.getAllListItems()
         }
     }
 

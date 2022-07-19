@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BuyList</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alert_name_blank">Fill out name field</string>
 </resources>
