@@ -36,6 +36,12 @@ class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase)
                 name.isBlank() -> { // check if name is blank
                     eventChannel.send(Event.ShowToast(R.string.alert_name_blank))
                 }
+                quantity.toString().isBlank() -> { // check if name is blank
+                    eventChannel.send(Event.ShowToast(R.string.alert_quantity_blank))
+                }
+                quantity.toString().isBlank() && name.isBlank() -> { // check if name is blank
+                    eventChannel.send(Event.ShowToast(R.string.alert_all_fields_blank))
+                }
                 else -> {
                     appDatabase.listItemDao().insert(
                         ListItem(

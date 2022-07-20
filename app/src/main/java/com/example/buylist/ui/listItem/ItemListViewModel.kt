@@ -2,11 +2,7 @@ package com.example.buylist.ui.listItem
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.buylist.data.local.AppDatabase
-import com.example.buylist.data.local.ListItem
-import com.example.buylist.data.local.ListItemDao
 import com.example.buylist.data.repository.ListItemRepository
-import com.example.buylist.domain.mapper.ListItemMapper
 import com.example.buylist.domain.uimodel.ListItemUIModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

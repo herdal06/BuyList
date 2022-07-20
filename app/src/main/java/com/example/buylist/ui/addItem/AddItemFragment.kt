@@ -31,8 +31,7 @@ class AddItemFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAddItemBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,11 +59,11 @@ class AddItemFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun initUI() {
-        binding.btnSave.setOnClickListener {
-            val name = binding.tilInputNote.text.toString()
-            val quantity = binding.tilInputWeight.text.toString().toInt()
-            viewModel.addItem(name = name, quantity = quantity, completed = true)
+    private fun initUI() = with(binding) {
+        btnSave.setOnClickListener {
+            val name = tilInputName.text.toString()
+            val quantity = tilInputQuantity.text.toString().toInt() // error
+            viewModel.addItem(name = name, quantity = quantity, completed = false)
             //Log.v("AddItemFragment","name : $name")
             //findNavController().popBackStack() // or dismiss() -> close bottom sheet.
         }
