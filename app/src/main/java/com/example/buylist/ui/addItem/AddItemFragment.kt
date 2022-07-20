@@ -48,7 +48,7 @@ class AddItemFragment : BottomSheetDialogFragment() {
                         AddItemViewModel.Event.PopBackStack -> {
                             // Use the Kotlin extension in the fragment-ktx artifact
                             setFragmentResult("requestKey", bundleOf())
-                            findNavController().popBackStack()
+                            //findNavController().popBackStack()
                         }
                         //is AddItemViewModel.Event.ShowSnackBar -> {}
                         is AddItemViewModel.Event.ShowToast -> {

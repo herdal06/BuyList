@@ -3,6 +3,7 @@ package com.example.buylist.di
 import android.content.Context
 import androidx.room.Room
 import com.example.buylist.data.local.AppDatabase
+import com.example.buylist.data.local.ListItemDao
 import com.example.buylist.utils.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -21,4 +22,10 @@ object RoomModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideDao(
+        db: AppDatabase
+    ): ListItemDao = db.listItemDao()
 }

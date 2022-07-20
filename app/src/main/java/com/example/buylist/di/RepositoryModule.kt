@@ -1,6 +1,6 @@
 package com.example.buylist.di
 
-import com.example.buylist.data.local.AppDatabase
+import com.example.buylist.data.local.ListItemDao
 import com.example.buylist.data.repository.ListItemRepository
 import dagger.Module
 import dagger.Provides
@@ -13,8 +13,8 @@ object RepositoryModule {
 
     @Provides
     fun provideListItemRepository(
-        appDatabase: AppDatabase
+        itemDao: ListItemDao
     ): ListItemRepository {
-        return ListItemRepository(appDatabase)
+        return ListItemRepository(itemDao)
     }
 }

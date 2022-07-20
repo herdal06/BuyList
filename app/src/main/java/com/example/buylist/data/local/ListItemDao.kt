@@ -1,11 +1,12 @@
 package com.example.buylist.data.local
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ListItemDao {
     @Query("SELECT * FROM list_item")
-    fun getAll(): List<ListItem>
+    fun getAll(): Flow<List<ListItem>>
 
     @Insert
     fun insertAll(vararg items: ListItem)

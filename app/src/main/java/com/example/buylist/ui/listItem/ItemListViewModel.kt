@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,11 +20,15 @@ class ItemListViewModel @Inject constructor(private var repository: ListItemRepo
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState
 
+    init {
+        getAllListItems()
+    }
 
-    fun getAllListItems() {
-        viewModelScope.launch(Dispatchers.IO) {
+
+    private fun getAllListItems() = viewModelScope.launch(Dispatchers.IO) {
+        repository.invoke().collectLatest { itemList ->
             _uiState.update {
-                it.copy(items = repository())
+                it.copy(items = itemList)
             }
         }
     }

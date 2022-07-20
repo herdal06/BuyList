@@ -38,7 +38,7 @@ class ItemListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUI()
         observe()
-        viewModel.getAllListItems()
+        //viewModel.getAllListItems()
     }
 
     private fun observe() {
@@ -48,9 +48,10 @@ class ItemListFragment : Fragment() {
             }
         }
         // update fragment with resultListener
-        setFragmentResultListener("requestKey") { _, _ ->
+        /*setFragmentResultListener("requestKey") { _, _ ->
             viewModel.getAllListItems()
         }
+         */
     }
 
     private fun setUIState(uiState: ItemListViewModel.UiState) {
