@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.buylist.base.BaseListAdapter
 import com.example.buylist.databinding.ItemRowBinding
 import com.example.buylist.domain.uimodel.ListItemUIModel
+import com.example.buylist.utils.extensions.orFalse
 
 class ListItemAdapter :
     BaseListAdapter<ListItemUIModel>(itemsSame = { old, new -> old.uid == new.uid },
@@ -18,7 +19,7 @@ class ListItemAdapter :
             binding.apply {
                 tvItem.text = uiModel.name
                 textViewItemQuantity.text = uiModel.quantity.toString()
-                checkBox.isChecked = uiModel.completed == false
+                checkBox.isChecked = uiModel.completed.orFalse()
             }
         }
     }

@@ -5,8 +5,8 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.buylist.R
-import com.example.buylist.data.local.AppDatabase
 import com.example.buylist.data.local.ListItem
+import com.example.buylist.data.local.ListItemDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase) :
+class AddItemViewModel @Inject constructor(private val itemDao: ListItemDao) :
     ViewModel() {
 
     sealed class Event {
@@ -43,7 +43,7 @@ class AddItemViewModel @Inject constructor(private val appDatabase: AppDatabase)
                     eventChannel.send(Event.ShowToast(R.string.alert_all_fields_blank))
                 }
                 else -> {
-                    appDatabase.listItemDao().insert(
+                    itemDao.insert(
                         ListItem(
                             name = name,
                             quantity = quantity,
