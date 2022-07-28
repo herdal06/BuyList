@@ -8,7 +8,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.buylist.databinding.FragmentAddItemBinding
 import com.example.buylist.utils.extensions.showToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -62,8 +61,7 @@ class AddItemFragment : BottomSheetDialogFragment() {
     private fun initUI() = with(binding) {
         btnSave.setOnClickListener {
             val name = tilInputName.text.toString()
-            val quantity = tilInputQuantity.text.toString().toInt() // error
-            viewModel.addItem(name = name, quantity = quantity, completed = false)
+            viewModel.addItem(name = name, completed = false)
             //Log.v("AddItemFragment","name : $name")
             //findNavController().popBackStack() // or dismiss() -> close bottom sheet.
         }

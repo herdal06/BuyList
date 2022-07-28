@@ -12,6 +12,4 @@ data class ListItem(
     val name: String?,
     @ColumnInfo(name = "completed")
     val completed: Boolean?,
-    @ColumnInfo(name = "quantity")
-    val quantity: Int?,
 )

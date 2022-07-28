@@ -30,23 +30,22 @@ class AddItemViewModel @Inject constructor(private val itemDao: ListItemDao) :
     private val eventChannel = Channel<Event>(Channel.BUFFERED)
     val eventsFlow = eventChannel.receiveAsFlow()
 
-    fun addItem(name: String, quantity: Int, completed: Boolean) {
+    fun addItem(name: String, completed: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             when {
                 name.isBlank() -> { // check if name is blank
                     eventChannel.send(Event.ShowToast(R.string.alert_name_blank))
                 }
-                quantity.toString().isBlank() -> { // check if name is blank
+                /*quantity.toString().isBlank() -> { // check if name is blank
                     eventChannel.send(Event.ShowToast(R.string.alert_quantity_blank))
                 }
                 quantity.toString().isBlank() && name.isBlank() -> { // check if name is blank
                     eventChannel.send(Event.ShowToast(R.string.alert_all_fields_blank))
-                }
+                }*/
                 else -> {
                     itemDao.insert(
                         ListItem(
                             name = name,
-                            quantity = quantity,
                             completed = completed
                         )
                     )

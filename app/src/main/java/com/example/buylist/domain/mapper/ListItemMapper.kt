@@ -9,8 +9,7 @@ object ListItemMapper {
         return ListItemUIModel(
             uid = entity.id,
             name = entity.name.orEmpty(),
-            completed = entity.completed.orFalse(),
-            quantity = entity.quantity ?: 0
+            completed = entity.completed.orFalse()
         )
     }
 }
